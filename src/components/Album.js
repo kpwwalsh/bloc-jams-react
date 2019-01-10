@@ -34,12 +34,10 @@ class Album extends Component {
            </colgroup>  
            <tbody>
            {
-            this.state.album.songs.map( (song, index) => { 
-              if (index>0);
-              else(index=5)
+            this.state.album.songs.map( (song, index) => {
               return (
                <tr key={index}>
-                  <td className= "songs-number">{index}</td>
+                  <td className= "songs-number">{index+1}</td>
                   <td className= "songs-title">{song.title}</td>
                   <td className= "songs-duration">{song.duration}</td> 
              </tr>)
