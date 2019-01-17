@@ -55,6 +55,7 @@ class Album extends Component {
      this.setState({hover: song});   
      }
 
+
      render() {
        return (
         <section className="album">       
