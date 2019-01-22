@@ -84,13 +84,13 @@ class Album extends Component {
                     //display pause button 
                     if(this.state.hover===song && this.state.isPlaying===song){
                       return (
-                      <span className="icon ion-md-pause">pause</span>
+                      <span className="icon ion-md-pause"></span>
                       );
                       }
                      //if I mouse over a song that is paused 
                      // display play button
                       else if(this.state.hover===song && this.state.isPlaying!==song){
-                      return (<span className="icon ion-md-play">play</span>
+                      return (<span className="icon ion-md-play"></span>
                        );
                       }
                       else { return (index + 1)};
