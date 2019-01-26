@@ -1,4 +1,5 @@
 
+
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
@@ -17,6 +18,7 @@ class Album extends Component {
         album: album,
         currentSong: album.songs[0],
         isPlaying: false,
+        isPaused: true,
         hover: false
       };
 
@@ -98,25 +100,26 @@ class Album extends Component {
                   onMouseLeave={()=> this.onMouseLeave(song, index)}>
                   <td className= "songs-number">
                   {(()=> {
-                    //if I mouse over a song that is currently playing 
-                    //display pause button 
-                    if(this.state.hover===song && this.state.isPlaying===song){
+                    //if a song is playing display the pause button in place of number
+                    if(this.state.hover===song && this.state.isPlaying!==song){
                       return (
-                      <span className="icon ion-md-pause"></span>
+                      <span className="icon ion-md-play"></span>
                       );
                       }
+
                      //if I mouse over a song that is paused 
                      // display play button
-                      else if(this.state.hover===song && this.state.isPlaying!==song){
-                      return (<span className="icon ion-md-play"></span>
+                     else if(this.state.isPlaying===song){
+                      return (<span className="icon ion-md-pause"></span>
                        );
                       }
+
                       else { return (index + 1)};
                   })()}
                   </td>
                   <td className= "songs-title">{song.title}</td>
                   <td className= "songs-duration">{song.duration}</td> 
-             </tr>)
+                </tr>)
             })}
            </tbody> 
           </table>
