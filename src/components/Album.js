@@ -1,5 +1,7 @@
+
 import React, { Component } from 'react';
 import albumData from './../data/albums';
+import PlayerBar from './PlayerBar';
 
 class Album extends Component {
     constructor(props) {
@@ -15,19 +17,20 @@ class Album extends Component {
         album: album,
         currentSong: album.songs[0],
         isPlaying: false,
-        hover: song
+        isPaused: true,
+        hover: false
       };
 
       this.audioElement = document.createElement('audio');
       this.audioElement.src = album.songs[0].audioSrc;
       }
 
-      play() {
+      play(song) {
       this.audioElement.play();
-      this.setState({ isPlaying: true });
+      this.setState({ isPlaying: song });
       }
 
-      pause() {
+      pause(song) {
       this.audioElement.pause();
       this.setState({ isPlaying: false });
      }   
@@ -40,21 +43,36 @@ class Album extends Component {
      handleSongClick(song) {
       const isSameSong = this.state.currentSong === song;
       if (this.state.isPlaying && isSameSong) {
-        this.pause();
+        this.pause(song);
       } else {
         if (!isSameSong) { this.setSong(song); }  
-        this.play();
+        this.play(song);
       }
      }
+
+     handlePrevClick() {
+      const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+      const newIndex = Math.max(0, currentIndex - 1);
+      const newSong = this.state.album.songs[newIndex];
+      this.setSong(newSong);
+      this.play();
+    }
+
+    handleNextClick() {
+      const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+      const newIndex = Math.max(0, currentIndex + 1);
+      const newSong = this.state.album.songs[newIndex];
+      this.setSong(newSong);
+      this.play();
+    }
 
      onMouseEnter(song){
      this.setState({hover: song});
      }
 
      onMouseLeave(song){
-     this.setState({hover: song});   
+     this.setState({hover: false});   
      }
-
 
      render() {
        return (
@@ -81,31 +99,36 @@ class Album extends Component {
                   onMouseLeave={()=> this.onMouseLeave(song, index)}>
                   <td className= "songs-number">
                   {(()=> {
-                    //if I mouse over a song that is currently playing 
-                    //display pause button 
-                    if(this.state.hover && this.state.isPlaying===song){
+                    //if a song is playing display the pause button in place of number
+                    if(this.state.hover===song && this.state.isPlaying!==song){
                       return (
-                      <span className="icon ion-md-pause"></span>
+                      <span className="icon ion-md-play"></span>
                       );
                       }
+
                      //if I mouse over a song that is paused 
                      // display play button
-                      else if(this.state.hover && this.state.setSong){
-                      return (<span className="icon ion-md-play"></span>
+                     else if(this.state.isPlaying===song){
+                      return (<span className="icon ion-md-pause"></span>
                        );
                       }
-    
-                      else {
-                        return 
-                    <span>(index +1)</span>
-                  }})()}
+
+                      else { return (index + 1)};
+                  })()}
                   </td>
                   <td className= "songs-title">{song.title}</td>
                   <td className= "songs-duration">{song.duration}</td> 
-             </tr>)
+                </tr>)
             })}
            </tbody> 
           </table>
+         <PlayerBar
+           isPlaying={this.state.isPlaying}
+           currentSong={this.state.currentSong}
+           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+           handlePrevClick={() => this.handlePrevClick()}
+           handleNextClick={() => this.handleNextClick()}
+         />
          </section>
       );
     }
