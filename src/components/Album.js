@@ -55,7 +55,7 @@ class Album extends Component {
       const newIndex = Math.max(0, currentIndex - 1);
       const newSong = this.state.album.songs[newIndex];
       this.setSong(newSong);
-      this.play();
+      this.play(newSong);
     }
 
     handleNextClick() {
@@ -63,7 +63,7 @@ class Album extends Component {
       const newIndex = Math.max(0, currentIndex + 1);
       const newSong = this.state.album.songs[newIndex];
       this.setSong(newSong);
-      this.play();
+      this.play(newSong);
     }
 
      onMouseEnter(song){
