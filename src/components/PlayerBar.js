@@ -4,8 +4,9 @@ class PlayerBar extends Component {
   render() {
     console.log('isPlaying', this.props.isPlaying)
     return (
+      <div className="jumbotron">
       <section className="player-bar">
-                <section id="buttons">
+        <section id="buttons">
              <button id="previous" onClick={this.props.handlePrevClick}>
              <span className="icon ion-md-skip-backward"></span>
            </button>
@@ -41,6 +42,7 @@ class PlayerBar extends Component {
            />
          </section>
       </section>
+      </div>
     );
   }
 }
