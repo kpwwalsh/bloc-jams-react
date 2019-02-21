@@ -1,3 +1,11 @@
+img { width: 100%; height: auto; }
+
+.style1 {
+  background-image: url('/assets/images/album_covers/01.jpg');
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
 .App {
   text-align: center;
 }
@@ -18,8 +26,14 @@
   color: white;
 }
 
+h1 {
+ color: white;
+ text-align: left;
+}
+
 body {
   background-color: lightblue;
+  margin: 20px, 20px;
 }
 
 .App-link {

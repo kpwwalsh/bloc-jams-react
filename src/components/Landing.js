@@ -5,26 +5,26 @@ const Landing = () => (
   <section className="landing">
        <h1 className="hero-title">Turn the music up!</h1>
     
-    <section className="selling-points">
-      <div className="point">
-        <h2 className="point-title">Choose your music</h2>
-        <p className="point-description">The world is full of music; why should you have to listen to music that someone else chose?</p>
-      </div>
-      <div className="float-left">
-      <div className="point">
-        <h2 className="point-title">Unlimited, streaming, ad-free</h2>
+    <section className="card-group">
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title"><large class="text-warning">Choose your music</large></h2>
+          <p className="card-text"><medium class="text-info">The world is full of music; why should you have to listen to music that someone else chose?</medium></p>
         </div>
-        <p className="point-description">No arbitrary limits. No distractions.</p>
       </div>
-      <div className="float-left">
-      <div className="point">
-        <h2 className="point-title">Mobile enabled</h2>
-        </div>
-        <p className="point-description">Listen to your music on the go. This streaming service is available on all mobile platforms.</p>
+      <div className="card">
+        <h2 className="card-title"><large class="text-warning">Unlimited, streaming, ad-free</large></h2>
+        <p className="card-text"><medium class="text-info">No arbitrary limits. No distractions.</medium></p>
+      </div> 
+      <div className="card">
+        <h2 className="card-title"><large class="text-warning">Mobile enabled</large></h2>     
+        <p className="card-text"><medium class="text-info">Listen to your music on the go. This streaming service is available on all mobile platforms.</medium></p>
       </div>
     </section>
   </section>
   </div>
+
 );
+
 
 export default Landing;

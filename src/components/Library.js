@@ -11,16 +11,25 @@ class Library extends Component {
     render() {
      return ( 
        <section className='library'>
+        <div className="container"> 
+         <div className="row">
+         
         {
           this.state.albums.map( (album, index) => 
           <Link to={`/album/${album.slug}`} key={index}>
-               <img src={album.albumCover} alt={album.title} />
+              <img src={album.albumCover}  className="mx-auto"  alt={album.title} />
+               <div className="card">
+              <div className="card-body">
                <div>{album.title}</div>
                <div>{album.artist}</div>
                <div>{album.songs.length} songs</div>
+               </div>
+              </div>
          </Link>
           )
         }
+       </div>
+       </div>
        </section>
       );
     }

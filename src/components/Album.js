@@ -90,7 +90,10 @@ class Album extends Component {
     handleNextClick() {
       const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
       const newIndex = Math.max(0, currentIndex + 1);
-      const newSong = this.state.album.songs[newIndex];
+      let newSong = this.state.album.songs[newIndex];
+      if (!newSong) {
+        newSong = this.state.album.songs[0];
+      }
       this.setSong(newSong);
       this.play(newSong);
    }
@@ -127,8 +130,8 @@ class Album extends Component {
 
      render() {
        return (
-        <section className="album">       
-        <section id="album-info">
+        <section className="album" className="container">       
+        <section id="album-info"  className="card">>
         <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
            <div className="album-details">
              <h1 id="album-title">{this.state.album.title}</h1>
@@ -136,7 +139,7 @@ class Album extends Component {
              <div id="release-info">{this.state.album.releaseInfo}</div>
            </div>
         </section>
-        <table id="song-list">
+        <table id="song-list" className="table">
            <colgroup>
              <col id="song-number-column" />
              <col id="song-title-column" />
