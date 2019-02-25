@@ -132,7 +132,7 @@ class Album extends Component {
        return (
         <section className="album" className="container">       
         <section id="album-info"  className="card">>
-        <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
+        <img className="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
            <div className="album-details">
              <h1 id="album-title">{this.state.album.title}</h1>
              <h2 className="artist">{this.state.album.artist}</h2>

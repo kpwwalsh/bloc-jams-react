@@ -8,21 +8,30 @@ class Library extends Component {
         this.state = { albums: albumData }; 
       }
 
+      formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        if (seconds < 10 ) {
+        return minutes + ':0' + seconds;
+      }  else {
+        return minutes + ':' + seconds;
+      }
+    }
+
     render() {
      return ( 
        <section className='library'>
         <div className="container"> 
-         <div className="row">
-         
+         <div className="row">         
         {
           this.state.albums.map( (album, index) => 
           <Link to={`/album/${album.slug}`} key={index}>
-              <img src={album.albumCover}  className="mx-auto"  alt={album.title} />
+              <img className= "album-cover-art" src={album.albumCover} alt={album.title} />
                <div className="card">
               <div className="card-body">
                <div>{album.title}</div>
                <div>{album.artist}</div>
-               <div>{album.songs.length} songs</div>
+               <div>{album.songs.time} songs</div>
                </div>
               </div>
          </Link>

@@ -1,4 +1,41 @@
-img { width: 100%; height: auto; }
+.album-cover-art {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.album-details{
+  color: #cd7f32;
+  text-align: center;
+}
+
+.container{
+  padding-top: 10px;
+  padding-bottom:10px;
+  background-color: #556447;
+}
+
+.card {
+  background-color: black;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.player-bar{
+  color: red;
+}
+
+.jumbotron{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
 
 .style1 {
   background-image: url('/assets/images/album_covers/01.jpg');
@@ -27,8 +64,12 @@ img { width: 100%; height: auto; }
 }
 
 h1 {
- color: white;
- text-align: left;
+ color:  #3e038b;
+ text-align: center;
+}
+
+.table{
+  color: #3e038b;
 }
 
 body {
