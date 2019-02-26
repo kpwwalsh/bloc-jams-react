@@ -27,14 +27,16 @@
 }
 
 .player-bar{
-  color: red;
+  color: goldenrod;
+  width: 100%;
 }
 
 .jumbotron{
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 25%;
+  background-color: #7b4e8d;
 }
 
 .style1 {
@@ -69,7 +71,7 @@ h1 {
 }
 
 .table{
-  color: #3e038b;
+  color: #cd7f32;
 }
 
 body {
